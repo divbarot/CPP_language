@@ -1,47 +1,29 @@
 #include<iostream>
-
 using namespace std;
-class REPORT
+class Result
 {
-	int adno;
-	char name[5];
-	float marks[5];
-	float average;
-	void GETAVG()
-	{
-		average = (marks[0]+marks[1]+marks[2]+marks[3]+marks[4])/5;
-	}
-public:
-	void READINFO();
-	void DISPLAYINFO();
+   int m,s,e;
+   public:
+   Result()
+   {
+    cout<<"Enter marks of Maths=";
+    cin>>m;
+    cout<<"Enter marks of Science=";
+    cin>>s;
+    cout<<"Enter marks of English=";
+    cin>>e;
+   }
+   void Showdata()
+   {
+   cout<<"Marks of Maths="<<m<<endl;
+   cout<<"Marks of Science="<<s<<endl;
+   cout<<"Marks of English="<<e<<endl;
+   cout<<"Total Marks="<<m+s+e<<endl;
+   cout<<"Percentage="<<(m+s+e)/3<<endl;
+   }
 };
-void REPORT::READINFO()
-{
-	do
-	{
-		cout<<"Enter 4 digit admission number ";
-		cin>>adno;
-	}while(adno<999 || adno>10000);
-	cout<<"Enter name";
-	gets(name);
-	cout<<"Enter marks in ";
-	for(int i=0;i<5;i++)
-	{
-		cout<<"Subject "<<i+1<<":";
-		cin>>marks[i];
-	};
-	GETAVG();
-}
-void REPORT::DISPLAYINFO()
-{
-	cout<<"Admission number:"<<adno<<" Name:"<<name<<" Marks are:"<< marks[0]<<" "<< marks[1]
-	<<" "<<marks[2]<<" "<< marks[3]<<" "<< marks[4]<<" Average:"<<average;
-}
 int main()
 {
-	REPORT obj;
-	obj.READINFO();
-	obj.DISPLAYINFO();
-	
-	return 0;
+    Result r;
+    r.Showdata();
 }
